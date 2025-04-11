@@ -1,0 +1,19 @@
+﻿<Window x:Class="Poods.WindowsFolder.MaterialsSelectionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Выбор материалов" Height="400" Width="300">
+    <Grid>
+        <StackPanel>
+            <ListBox Name="MaterialsListBox" Height="300" SelectionMode="Multiple">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <CheckBox Content="{Binding MaterialName}" 
+                                  IsChecked="{Binding IsSelected}" 
+                                  Margin="5"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Button Content="Сохранить" Click="SaveButton_Click" Margin="5"/>
+        </StackPanel>
+    </Grid>
+</Window>

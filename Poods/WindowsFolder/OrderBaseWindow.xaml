@@ -1,0 +1,38 @@
+﻿<Window x:Class="Poods.WindowsFolder.OrderBaseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Poods.WindowsFolder"
+        mc:Ignorable="d"
+        Title="OrderBaseWindow" WindowStartupLocation="CenterScreen" Height="450" Width="1100" MinWidth="1100" MinHeight="450">
+    <Grid>
+
+        <DataGrid x:Name="DataGridOrder" AutoGenerateColumns="False" Margin="10,10,10,177" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер ID заказа" Binding="{Binding IdOrder}"/>
+                <DataGridTextColumn Header="Номер заказа" Binding="{Binding OrderNumber}" Width="*" />
+                <DataGridTextColumn Header="Дата заказа" Binding="{Binding DateOrder}" />
+                <DataGridTextColumn Header="Дата завершения" Binding="{Binding CompletionDate}" />
+                <DataGridTextColumn Header="Статус оплаты" Binding="{Binding Paid}" />
+                <DataGridTextColumn Header="Статус заказа" Binding="{Binding Status}" />
+                <DataGridTextColumn Header="Отвественый сотрудник" Binding="{Binding StaffInfo}" />
+                <DataGridTextColumn Header="Номер ID клиента" Binding="{Binding IdClient}" />
+                <DataGridTextColumn Header="Полная стоимость" Binding="{Binding TotalCost}" />
+                <DataGridTextColumn Header="Состав заказа" Binding="{Binding Structure}" Width="*"/>
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Обновить&#xD;&#xA;данные&#xD;&#xA;заказа" Click="Update_Order_Button_Click" Margin="107,0,0,10" Height="67" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="92"/>
+        <TextBlock HorizontalAlignment="Left" Margin="107,0,0,156" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="189" Text="Статус оплаты"/>
+        <Button Content="Удалить&#xD;&#xA;заказ" Click="Delet_Order_Button_Click" HorizontalAlignment="Left" Margin="204,0,0,10" RenderTransformOrigin="0.454,0.102" Width="92" Height="67" VerticalAlignment="Bottom"/>
+        <ComboBox HorizontalAlignment="Left" Name="ComboBoxIdOrder" Margin="10,0,0,110" Width="92" Height="41" VerticalAlignment="Bottom"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,0,0,156" TextWrapping="Wrap" Text="Номер ID заказа" VerticalAlignment="Bottom" Width="92" RenderTransformOrigin="0.282,0.624"/>
+        <ComboBox HorizontalAlignment="Left" Name="ComboBoxPaidStatus"  Margin="107,0,0,110" Width="189" Height="41" VerticalAlignment="Bottom"/>
+        <ComboBox HorizontalAlignment="Left" Name="ComboBoxStatusOfOrder" Margin="301,0,0,110" Width="185" Height="41" VerticalAlignment="Bottom"/>
+        <TextBlock HorizontalAlignment="Left" Margin="301,0,0,156" TextWrapping="Wrap" Width="185" Height="16" VerticalAlignment="Bottom" Text="Статус заказа"/>
+        <Button Content="Обновить&#xD;&#xA;таблицу" Click="Update_Grid_Button_Click" HorizontalAlignment="Left" Margin="301,0,0,10" RenderTransformOrigin="0.454,0.102" Width="92" Height="67" VerticalAlignment="Bottom"/>
+        <Button Content="Добавить&#xA;мебель в&#xA;заказ" Click="Add_Furniture_In_Order_Button_Click" Margin="10,0,0,10" Height="67" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="92"/>
+    </Grid>
+</Window>

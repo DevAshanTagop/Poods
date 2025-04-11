@@ -1,0 +1,43 @@
+﻿<Window x:Class="Poods.WindowsFolder.StaffBaseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Poods.WindowsFolder"
+        mc:Ignorable="d"
+        Title="staffWindow" WindowStartupLocation="CenterScreen" Height="450" Width="1000" MinWidth="1000" MinHeight="450">
+    <Grid>
+
+        <DataGrid x:Name="DataGridStaff" AutoGenerateColumns="False" Margin="10,10,10,186" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер Сотрудника" Binding="{Binding IdStaff}"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Добавить&#xD;&#xA;сотрудника"  Margin="10,0,0,10" Height="67" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="84" Click="Add_Staff_Button_Click" Grid.Row="1"/>
+        <Button Content="Обновить&#xD;&#xA;данные&#xD;&#xA;сотрудника" Click="Update_Staff_Button_Click" Margin="99,0,0,10" Height="67" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="92" Grid.Row="1"/>
+        <TextBox Margin="99,0,0,110"  Name="LastNameTextBox" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="92" Height="41" Grid.Row="1"/>
+        <TextBox Margin="196,0,0,110" Name="FirstNameTextBox" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="92" Height="41" Grid.Row="1"/>
+        <TextBox Margin="293,0,0,110" Name="MiddlуNameTextBox" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="93" Height="41" Grid.Row="1"/>
+        <TextBox Margin="586,0,0,110" Name="LoginTextBox" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="92" Height="41" Grid.Row="1"/>
+        <TextBox Margin="683,0,0,110" Name="PasswordTextBox" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="92" Height="41" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="99,0,0,156" TextWrapping="Wrap" Text="Фамилия" VerticalAlignment="Bottom" Width="92" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="196,0,0,156" TextWrapping="Wrap" Text="Имя" VerticalAlignment="Bottom" Width="92" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="293,0,0,156" TextWrapping="Wrap" Text="Отчество" Width="93" Height="16" VerticalAlignment="Bottom" RenderTransformOrigin="1.327,-1.5" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="391,0,0,156" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="93" Text="Должность" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="586,0,0,156" TextWrapping="Wrap" Text="Логин" Width="92" Height="16" VerticalAlignment="Bottom" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="683,0,0,156" TextWrapping="Wrap" Text="Пароль" Width="92" Height="16" VerticalAlignment="Bottom" Grid.Row="1"/>
+        <Button Content="Удалить&#xD;&#xA;сотрудника" Click="Delet_Staff_Button_Click" HorizontalAlignment="Left" Margin="196,0,0,10" RenderTransformOrigin="0.454,0.102" Width="92" Height="67" VerticalAlignment="Bottom" Grid.Row="1"/>
+        <ComboBox HorizontalAlignment="Left" Name="ComboBoxIdStaff" Margin="10,0,0,110" Width="84" Height="41" VerticalAlignment="Bottom" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,0,0,156" TextWrapping="Wrap" Text="Id сотрудника" VerticalAlignment="Bottom" Width="84" RenderTransformOrigin="0.282,0.624" Grid.Row="1"/>
+        <ComboBox HorizontalAlignment="Left" Name="ComboBoxPosition"  Margin="391,0,0,110" Width="93" Height="41" VerticalAlignment="Bottom" Grid.Row="1">
+
+        </ComboBox>
+        <ComboBox HorizontalAlignment="Left" Name="ComboBoxStatusOfAccount" Margin="779,0,0,110" Width="93" Height="41" VerticalAlignment="Bottom" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="780,0,0,156" TextWrapping="Wrap" Width="92" Height="16" VerticalAlignment="Bottom" Text="Cтатус аккаунта" Grid.Row="1"/>
+        <TextBox Margin="489,0,0,110" x:Name="SalaryTextBox" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="92" Height="41" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="489,0,0,156" TextWrapping="Wrap" Width="92" Height="16" VerticalAlignment="Bottom" Text="Зарпалата" Grid.Row="1"/>
+        <Button Content="Обновить" Click="Update_Grid_Button_Click" HorizontalAlignment="Left" Margin="293,0,0,10" RenderTransformOrigin="0.454,0.102" Width="92" Height="67" VerticalAlignment="Bottom" Grid.Row="1"/>
+    </Grid>
+</Window>
