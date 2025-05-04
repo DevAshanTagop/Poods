@@ -46,6 +46,32 @@ namespace Poods
             }
         }
 
+        public DataTable GetData2(string query, Dictionary<string, object> parameters)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                DataTable dt = new DataTable();
+                try
+                {
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+
+                    // Добавляем параметры
+                    foreach (var param in parameters)
+                    {
+                        cmd.Parameters.AddWithValue(param.Key, param.Value);
+                    }
+
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    adapter.Fill(dt);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Ошибка: " + ex.Message);
+                }
+                return dt;
+            }
+        }
         public DataTable GetMaterials()
         {
             return GetData("SELECT IdMaterials, MaterialName FROM materials");

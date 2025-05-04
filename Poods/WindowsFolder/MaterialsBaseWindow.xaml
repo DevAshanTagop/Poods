@@ -8,7 +8,7 @@
               Title="Панель управление базами данных материалов" WindowStartupLocation="CenterScreen" Height="450" Width="850" MinWidth="850" MinHeight="450">
     <Grid>
 
-        <DataGrid Name="DataGridMaterials" AutoGenerateColumns="False" Margin="10,10,10,163">
+        <DataGrid Name="DataGridMaterials" AutoGenerateColumns="False" Margin="10,10,10,114">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер материала" Binding="{Binding IdMaterials}"/>
                 <DataGridTextColumn Header="Название" Binding="{Binding MaterialName}" Width="*"  />
@@ -20,21 +20,21 @@
 
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Добавить" Click="Add_Materials_Button_Click" Margin="11,0,0,10" Height="67" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="93"/>
-        <Button Content="Обновить&#xD;&#xA;данные" Click="Update_Materials_Button_Click" Margin="109,0,0,10" Height="67" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="92"/>
-        <TextBox Margin="108,0,0,96" Name="NameTextBox" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="92" Height="41" Grid.Row="1"/>
-        <TextBox Margin="400,0,0,96" Name="CostTextBox" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="93" Height="41"/>
-        <TextBox Margin="498,0,0,96" Name="QuantityTextBox" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="93" Height="41"/>
-        <TextBlock HorizontalAlignment="Left" Margin="108,0,0,142" TextWrapping="Wrap" Text="Название" VerticalAlignment="Bottom" Width="92" Grid.Row="1"/>
-        <TextBlock HorizontalAlignment="Left" Margin="401,0,0,142" TextWrapping="Wrap" Text="Стоимость" Width="92" Height="16" VerticalAlignment="Bottom" RenderTransformOrigin="1.327,-1.5"/>
-        <TextBlock HorizontalAlignment="Left" Margin="498,0,0,142" TextWrapping="Wrap" Text="Количество" VerticalAlignment="Bottom" Width="93"/>
-        <TextBlock HorizontalAlignment="Left" Margin="597,0,0,142" TextWrapping="Wrap" Text="Поставщик" Width="189" Height="16" VerticalAlignment="Bottom"/>
-        <Button Content="Удалить" Click="Delet_Materials_Button_Click" HorizontalAlignment="Left" Margin="206,0,0,10" RenderTransformOrigin="0.454,0.102" Width="92" Height="67" VerticalAlignment="Bottom"/>
-        <ComboBox HorizontalAlignment="Left" Name="IdMatirialCmBx" Margin="10,0,0,96" Width="93" Height="41" VerticalAlignment="Bottom" Grid.Row="1"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,0,0,142" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="93" RenderTransformOrigin="0.25,0.499" Text="Артикул"/>
-        <Button Content="Обновить&#xD;&#xA;таблицу" Click="Update_DataGrid_Furniture_Button_Click" HorizontalAlignment="Left" Margin="303,0,0,10" RenderTransformOrigin="0.454,0.102" Width="92" Height="67" VerticalAlignment="Bottom"/>
-        <ComboBox HorizontalAlignment="Left" Name="ProvidersCmBx" Margin="597,0,0,96" Width="189" Height="41" VerticalAlignment="Bottom"/>
-        <TextBox Margin="206,0,0,96" x:Name="DescriptionTextBox" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="189" Height="41"/>
-        <TextBlock HorizontalAlignment="Left" Margin="206,0,0,142" TextWrapping="Wrap" Text="Описание" VerticalAlignment="Bottom" Width="189"/>
+        <Button Content="Добавить" Click="Add_Materials_Button_Click" Margin="11,0,0,10" Height="32" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="93"/>
+        <Button Content="Обновить" Click="Update_Materials_Button_Click" Margin="109,0,0,10" Height="32" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="92"/>
+        <TextBox Margin="109,0,0,47" Name="NameTextBox" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="92" Height="41"/>
+        <TextBox Margin="401,0,0,47" Name="CostTextBox" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="93" Height="41"/>
+        <TextBox Margin="499,0,0,47" Name="QuantityTextBox" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="93" Height="41"/>
+        <TextBlock HorizontalAlignment="Left" Margin="109,0,0,93" TextWrapping="Wrap" Text="Название" VerticalAlignment="Bottom" Width="92"/>
+        <TextBlock HorizontalAlignment="Left" Margin="402,0,0,93" TextWrapping="Wrap" Text="Стоимость" Width="92" Height="16" VerticalAlignment="Bottom" RenderTransformOrigin="1.327,-1.5"/>
+        <TextBlock HorizontalAlignment="Left" Margin="499,0,0,93" TextWrapping="Wrap" Text="Количество" VerticalAlignment="Bottom" Width="93"/>
+        <TextBlock HorizontalAlignment="Left" Margin="598,0,0,93" TextWrapping="Wrap" Text="Поставщик" Width="189" Height="16" VerticalAlignment="Bottom"/>
+        <Button Content="Удалить" Click="Delet_Materials_Button_Click" HorizontalAlignment="Left" Margin="206,0,0,10" RenderTransformOrigin="0.454,0.102" Width="92" Height="32" VerticalAlignment="Bottom"/>
+        <ComboBox HorizontalAlignment="Left" Name="IdMatirialCmBx" Margin="11,0,0,47" Width="93" Height="41" VerticalAlignment="Bottom"/>
+        <TextBlock HorizontalAlignment="Left" Margin="11,0,0,93" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="93" RenderTransformOrigin="0.25,0.499" Text="Артикул"/>
+        <Button Content="Перезагрузить таблицу" Click="Update_DataGrid_Furniture_Button_Click" HorizontalAlignment="Left" Margin="303,0,0,10" RenderTransformOrigin="0.454,0.102" Width="143" Height="32" VerticalAlignment="Bottom"/>
+        <ComboBox HorizontalAlignment="Left" Name="ProvidersCmBx" Margin="598,0,0,47" Width="189" Height="41" VerticalAlignment="Bottom"/>
+        <TextBox Margin="207,0,0,47" x:Name="DescriptionTextBox" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="189" Height="41"/>
+        <TextBlock HorizontalAlignment="Left" Margin="207,0,0,93" TextWrapping="Wrap" Text="Описание" VerticalAlignment="Bottom" Width="189"/>
     </Grid>
 </Window>

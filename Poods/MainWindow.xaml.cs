@@ -119,7 +119,7 @@ ORDER BY o.DateOrder DESC";
             {
                 orderBaseWindow = new OrderBaseWindow();
                 orderBaseWindow.Owner = this;
-                orderBaseWindow.Closed += (s, args) => clientsBaseWindow = null;
+                orderBaseWindow.Closed += (s, args) => orderBaseWindow = null;
                 orderBaseWindow.Show();
             }
             else
@@ -208,62 +208,77 @@ ORDER BY o.DateOrder DESC";
         public int idstaff = 0;
         private void LoadCurrentUserInfo(string login, string password)
         {
-            string query = $"SELECT IdStaff, LastName, FirstName, MiddlуName, Position FROM staff WHERE Login = {login}";
-            DataTable userInfo = db.GetData(query);
+            // Используем параметризованный запрос через GetData
+            string query = "SELECT IdStaff, LastName, FirstName, MiddlуName, Position FROM staff WHERE Login = @login";
 
-           
+            // Создаем параметры для запроса
+            var parameters = new Dictionary<string, object>
+            {
+                  { "@login", login }
+            };
+
+            // Получаем данные пользователя
+            DataTable userInfo = db.GetData2(query, parameters);
+
             if (login == "admin" && password == "1")
             {
-                string idstaff = "777";
+                int idstaff = 777;
                 string lastName = "admin";
                 string firstName = "admin";
                 string middlуName = "admin";
                 string position = "admin";
 
                 CurrentUserInfo.Text = $"Вы вошли как: {lastName} {firstName} {middlуName} Номер ID: {idstaff} Должность: {position}";
+                this.idstaff = idstaff;
+
+                // Включаем все кнопки для админа
+                SetButtonsAccess(true, true, true, true, true, true, true);
+                return;
             }
+
             if (userInfo.Rows.Count > 0)
             {
                 DataRow row = userInfo.Rows[0];
                 int idstaff = Convert.ToInt32(row["IdStaff"]);
                 string lastName = row["LastName"].ToString();
                 string firstName = row["FirstName"].ToString();
-                string middlуName = row["MiddlуName"].ToString();
+                string middlуName = row["MiddlуName"]?.ToString() ?? "";
                 string position = row["Position"].ToString();
 
                 this.idstaff = idstaff;
                 CurrentUserInfo.Text = $"Вы вошли как: {lastName} {firstName} {middlуName} Номер ID: {idstaff} Должность: {position}";
-                if (position == "Админ"|| position == "Управляюший" || position == "admin")
+
+                // Устанавливаем доступ к кнопкам в зависимости от должности
+                switch (position)
                 {
-                    StaffBaseWindow_Button.IsEnabled = true;
-                    ClientsBaseWindow_Button.IsEnabled = true;
-                    OrderBaseWindow_Button.IsEnabled= true;
-                    CreationOrderWindow_Button.IsEnabled=true;
-                    FurnitureBaseWindow_Button.IsEnabled = true;
-                    MaterialsBaseWindow_Button.IsEnabled = true;
-                    ProvidersBaseWindow_Button.IsEnabled = true;
-
-                }
-                if (position == "Продовец" )
-                {
-                    FurnitureBaseWindow_Button.IsEnabled = true;
-                    MaterialsBaseWindow_Button.IsEnabled = true;
-                    ProvidersBaseWindow_Button.IsEnabled = true;
-                    ClientsBaseWindow_Button.IsEnabled = true;
-                    OrderBaseWindow_Button.IsEnabled = true;
-                    CreationOrderWindow_Button.IsEnabled = true;
-
-                }
-                if (position == "Инжинер")
-                {
-                    MaterialsBaseWindow_Button.IsEnabled = true;
-
-                    FurnitureBaseWindow_Button.IsEnabled = true;  
-                    OrderBaseWindow_Button.IsEnabled = true;
-                   
-
+                    case "Админ":
+                    case "Управляюший":
+                        SetButtonsAccess(true, true, true, true, true, true, true);
+                        break;
+                    case "Продовец":
+                        SetButtonsAccess(false, true, true, true, true, true, true);
+                        break;
+                    case "Инжинер":
+                        SetButtonsAccess(false, false, true, false, true, true, false);
+                        break;
+                    default:
+                        SetButtonsAccess(false, false, false, false, false, false, false);
+                        break;
                 }
             }
+        }
+
+        // Метод для управления доступом к кнопкам
+        private void SetButtonsAccess(bool staff, bool clients, bool order, bool creationOrder,
+                                    bool furniture, bool materials, bool providers)
+        {
+            StaffBaseWindow_Button.IsEnabled = staff;
+            ClientsBaseWindow_Button.IsEnabled = clients;
+            OrderBaseWindow_Button.IsEnabled = order;
+            CreationOrderWindow_Button.IsEnabled = creationOrder;
+            FurnitureBaseWindow_Button.IsEnabled = furniture;
+            MaterialsBaseWindow_Button.IsEnabled = materials;
+            ProvidersBaseWindow_Button.IsEnabled = providers;
         }
 
         private void MainWindow_Closed(object sender, EventArgs e)
