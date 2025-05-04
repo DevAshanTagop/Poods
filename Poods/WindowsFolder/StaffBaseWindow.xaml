@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Poods.WindowsFolder"
         mc:Ignorable="d"
-        Title="staffWindow" WindowStartupLocation="CenterScreen" Height="450" Width="1000" MinWidth="1000" MinHeight="450">
+               
+        Title="Панель управление базами данных сотрудников" WindowStartupLocation="CenterScreen" Height="450" Width="1000" MinWidth="1000" MinHeight="450">
     <Grid>
 
         <DataGrid x:Name="DataGridStaff" AutoGenerateColumns="False" Margin="10,10,10,146" >

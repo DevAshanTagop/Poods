@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Poods"
         mc:Ignorable="d"
-        Title="MainWindow" WindowStartupLocation="CenterScreen" Height="510" Width="900" MinWidth="900" MinHeight="510">
+        Icon="POODS1.ico"
+        Title="ПООДЗ" WindowStartupLocation="CenterScreen" Height="510" Width="900" MinWidth="900" MinHeight="510">
     <Grid>
         <Grid x:Name="AuthorizationGrid" Visibility="Visible">
             <Label Name="Label1" Content="Введите логин" HorizontalAlignment="Left" Height="40" Margin="148,46,0,0" VerticalAlignment="Top"></Label>

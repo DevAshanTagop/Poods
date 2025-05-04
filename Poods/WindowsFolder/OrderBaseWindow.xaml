@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Poods.WindowsFolder"
         mc:Ignorable="d"
-        Title="OrderBaseWindow" WindowStartupLocation="CenterScreen" Height="450" Width="1100" MinWidth="1100" MinHeight="450">
+        Title="Панель управление базами данных заказов" WindowStartupLocation="CenterScreen" Height="450" Width="1100" MinWidth="1100" MinHeight="450">
     <Grid>
 
         <DataGrid x:Name="DataGridOrder" AutoGenerateColumns="False" Margin="10,10,10,115" >
